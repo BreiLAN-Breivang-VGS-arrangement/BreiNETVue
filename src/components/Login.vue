@@ -1,6 +1,6 @@
 <template>
 
-    <form @submit.prevent="registerAccount()" >
+    <form @submit.prevent="login()" >
         <label for="username">
             Brukernavn
         </label>
@@ -10,11 +10,7 @@
             Passord
         </label>
         <input type="text" v-model="password" class="text-black">
-        
-        <label for="secret_key">
-            Hemmelig nøkkel
-        </label>
-        <input type="text" v-model="secret_key" class="text-black">
+
         <button type="submit">
             submit
         </button>
@@ -30,26 +26,24 @@ export default {
         return {
             username: '',
             password: '',
-            secret_key: '',
         };
     },
 
     methods: {
-        async registerAccount(){
-            if(this.first_name == '' || this.last_name == '' || this.email == ''){
+        async login(){
+            if(this.username != '' && this.password != ''){
                 try{ 
-                    await axios.post('http://127.0.0.1:5000/register', {
+                    await axios.post('http://127.0.0.1:5000/login', {
                         username: this.username,
                         password: this.password,
-                        secret_key: this.secret_key,
                     });
                     location.reload();
                 } catch(error) {
-                    alert('Noe gikk galt under opprettingen av brukeren, brukte du rett hemmelig nøkkel?')
+                    alert('Vi kunne ikke logge deg inn, sikker på at det er rett brukernavn og passord?')
                     console.log(error)
                 };
             } else {
-                alert("Du er nødt til å fylle alle tre feltene for å kunne opprette bruker!")
+                alert("Husk både passord OG brukernavn!")
             }
         }
     }

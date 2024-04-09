@@ -38,7 +38,7 @@ export default {
         async registerAccount(){
             if(this.first_name == '' || this.last_name == '' || this.email == ''){
                 try{ 
-                    await axios.post('http://127.0.0.1:5000/register', {
+                    await axios.post('http://127.0.0.1:5234/register', {
                         username: this.username,
                         password: this.password,
                         secret_key: this.secret_key,
