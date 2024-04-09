@@ -4,17 +4,20 @@
         <label for="username">
             Brukernavn
         </label>
-        <input type="text" v-model="username">
+        <input type="text" v-model="username" class="text-black">
         
         <label for="password">
             Passord
         </label>
-        <input type="text" v-model="password">
+        <input type="text" v-model="password" class="text-black">
         
         <label for="secret_key">
             Hemmelig nøkkel
         </label>
-        <input type="text" v-model="secret_key">
+        <input type="text" v-model="secret_key" class="text-black">
+        <button type="submit">
+            submit
+        </button>
     </form>
 
 </template>
