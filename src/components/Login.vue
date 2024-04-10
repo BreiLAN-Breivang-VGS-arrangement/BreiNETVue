@@ -37,7 +37,6 @@ export default {
                         username: this.username,
                         password: this.password,
                     });
-                    location.reload();
                 } catch(error) {
                     alert('Vi kunne ikke logge deg inn, sikker på at det er rett brukernavn og passord?')
                     console.log(error)
